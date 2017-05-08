@@ -5,6 +5,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Using gem bootstrap and jquery to make it easy to color our page
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
+gem 'jquery-rails'
 # Using gem devise to manage users
 gem 'devise', git: 'https://github.com/gogovan/devise.git', branch: 'rails-5.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

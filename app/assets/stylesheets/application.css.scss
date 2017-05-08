@@ -1,0 +1,9 @@
+/* app/assets/stylesheets/application.css.scss */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "posts.scss";
+
+.custom-nav {
+  margin-top: 15px;
+}
