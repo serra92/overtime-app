@@ -42,6 +42,8 @@ group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'rspec-rails', '~> 3.5'
+  # Using gem factorygirl to make testing easier
+  gem 'factory_girl_rails', '~> 4.7'
 end
 
 group :development do
