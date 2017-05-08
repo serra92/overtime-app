@@ -1,11 +1,12 @@
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
 
-
+# Using gem devise to manage users
+gem 'devise', git: 'https://github.com/gogovan/devise.git', branch: 'rails-5.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.0'
 # Use sqlite3 as the database for Active Record
@@ -35,9 +36,9 @@ gem 'jbuilder', '~> 2.5'
 
 group :development, :test do
   gem 'byebug'
-  gem 'rspec-rails', '~> 3.5'
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'rspec-rails', '~> 3.5'
 end
 
 group :development do
