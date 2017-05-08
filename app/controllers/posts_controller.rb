@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show]
 
   def index
-    # code goes here
+    @posts = Post.all
   end
 
   def new
