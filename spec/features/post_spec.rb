@@ -4,8 +4,8 @@ require 'rails_helper'
 
 describe 'navigate' do
   before do
-    u = FactoryGirl.create(:user)
-    login_as(u, scope: :user)
+    @user = FactoryGirl.create(:user)
+    login_as(@user, scope: :user)
   end
 
   describe 'index' do
@@ -22,10 +22,34 @@ describe 'navigate' do
     end
 
     it 'has a list of posts' do
-      FactoryGirl.create(:post)
-      FactoryGirl.create(:second_post)
+      p1 = FactoryGirl.create(:post)
+      p2 = FactoryGirl.create(:second_post)
+      # TODO
+      # THIS CODE IS TEMPORARY
+      p1.update(user_id: @user.id)
+      p2.update(user_id: @user.id)
+      # END OF TEMPORARY CODE
       visit posts_path
       expect(page).to have_content(/Post1|Post2/)
+    end
+
+    it 'has a scope so that only post creators can see their posts' do
+      Post.create(date: Date.today, rationale: 'asdf', user_id: @user.id)
+      Post.create(date: Date.today, rationale: 'asdf', user_id: @user.id)
+
+      other_user = User.create(
+        first_name: 'Non', last_name: 'Authorized',
+        email: 'nonauth@example.com', password: 'asdfasdf',
+        password_confirmation: "asdfasdf"
+      )
+      Post.create(
+        date: Date.today, rationale: "This post shouldn't be seen",
+        user_id: other_user.id
+      )
+
+      visit posts_path
+
+      expect(page).to_not have_content(/This post shouldn't be seen/)
     end
   end
 
@@ -105,10 +129,14 @@ describe 'navigate' do
 
   describe 'delete' do
     it 'can be deleted' do
-      @post = FactoryGirl.create(:post)
+      post = FactoryGirl.create(:post)
+      # TODO
+      # THIS CODE IS TEMPORARY
+      post.update(user_id: @user.id)
+      # END OF TEMPORARY CODE
       visit posts_path
 
-      click_link("delete_post_#{@post.id}_from_index")
+      click_link("delete_post_#{post.id}_from_index")
       expect(page.status_code).to eq(200)
     end
   end
