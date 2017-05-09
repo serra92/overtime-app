@@ -20,7 +20,7 @@ describe 'navigate' do
 
     it 'cannot be edited by a non admin' do
       logout(:user)
-      user = FactoryGirl.create(:user)
+      user = @post.user # only the user who created the post can edit it
       login_as(user, scope: :user)
 
       visit edit_post_path(@post)
