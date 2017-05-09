@@ -17323,3 +17323,456 @@ Processing by StaticController#homepage as HTML
 Completed 200 OK in 118ms (Views: 114.0ms | ActiveRecord: 0.3ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-05-09 22:52:42 +0100
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticController#homepage as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering static/homepage.html.erb within layouts/application
+  Rendered static/homepage.html.erb within layouts/application (1.1ms)
+  Rendered shared/_nav.html.erb (1.9ms) [cache miss]
+  Rendered shared/_alerts.html.erb (0.7ms) [cache miss]
+Completed 200 OK in 655ms (Views: 597.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-05-09 22:52:44 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 3]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered posts/index.html.erb within layouts/application (2.0ms)
+  Rendered shared/_nav.html.erb (1.5ms) [cache miss]
+  Rendered shared/_alerts.html.erb (0.9ms) [cache miss]
+Completed 200 OK in 89ms (Views: 73.7ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-05-09 22:52:48 +0100
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"QpUIjLd0FXnRFJXTRFwAigpyUiq7CYXfcbfLOZZsWr9tjnZSVWyUHNeFHvQYx7N6n2LRE3EavMVwr63v0xEQQw=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 25ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-09 22:52:48 +0100
+Processing by StaticController#homepage as HTML
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-05-09 22:52:48 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (23.8ms)
+  Rendered shared/_nav.html.erb (0.8ms) [cache miss]
+  Rendered shared/_alerts.html.erb (0.9ms) [cache miss]
+Completed 200 OK in 106ms (Views: 103.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-05-09 22:52:55 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qncujD+F3Qp6IWUxsMGZchqRvArAK55JBKUFKvGwgkyNk1Se4ogza8WiAuJ8T17NnfJjLW464tCTEt4Na3R8AQ==", "user"=>{"email"=>"admin@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "admin@test.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2017-05-09 21:52:56.032092"], ["last_sign_in_at", "2017-05-09 21:07:27.901264"], ["sign_in_count", 3], ["updated_at", "2017-05-09 21:52:56.032928"], ["id", 3]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 221ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-09 22:52:56 +0100
+Processing by StaticController#homepage as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering static/homepage.html.erb within layouts/application
+  Rendered static/homepage.html.erb within layouts/application (0.4ms)
+  Rendered shared/_nav.html.erb (1.0ms) [cache miss]
+  Rendered shared/_alerts.html.erb (0.5ms) [cache miss]
+Completed 200 OK in 92ms (Views: 88.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-05-09 22:53:01 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 3]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered posts/index.html.erb within layouts/application (1.3ms)
+  Rendered shared/_nav.html.erb (2.1ms) [cache miss]
+  Rendered shared/_alerts.html.erb (1.4ms) [cache miss]
+Completed 200 OK in 84ms (Views: 79.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-05-09 22:53:03 +0100
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_status.html.erb (1.9ms) [cache miss]
+  Rendered posts/_form.html.erb (9.1ms) [cache miss]
+  Rendered posts/new.html.erb within layouts/application (11.4ms)
+  Rendered shared/_nav.html.erb (1.0ms) [cache miss]
+  Rendered shared/_alerts.html.erb (0.5ms) [cache miss]
+Completed 200 OK in 115ms (Views: 105.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2017-05-09 22:53:05 +0100
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/administrate/application/index.html.erb within layouts/administrate/application
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/administrate/application/_search.html.erb (7.9ms) [cache miss]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" IN (1, 2, 3)[0m
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/has_many/_index.html.erb (0.6ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/number/_index.html.erb (0.5ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/string/_index.html.erb (0.3ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/string/_index.html.erb (0.0ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/has_many/_index.html.erb (0.2ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/number/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/string/_index.html.erb (0.0ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/string/_index.html.erb (0.0ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/has_many/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/number/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/string/_index.html.erb (0.0ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/string/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/administrate/application/_collection.html.erb (96.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/administrate/application/index.html.erb within layouts/administrate/application (148.1ms)
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/administrate/application/_stylesheet.html.erb (17.4ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/administrate/application/_sidebar.html.erb (2.3ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/administrate/application/_flashes.html.erb (0.4ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/administrate/application/_javascript.html.erb (59.2ms) [cache miss]
+Completed 200 OK in 331ms (Views: 310.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2017-05-09 22:53:05 +0100
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/administrate/application/index.html.erb within layouts/administrate/application
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/administrate/application/_search.html.erb (3.1ms) [cache miss]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" IN (1, 2, 3)[0m
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/has_many/_index.html.erb (0.6ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/number/_index.html.erb (0.7ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/string/_index.html.erb (0.5ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/string/_index.html.erb (0.2ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/has_many/_index.html.erb (0.3ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/number/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/string/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/string/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/has_many/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/number/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/string/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/string/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/administrate/application/_collection.html.erb (102.7ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/administrate/application/index.html.erb within layouts/administrate/application (145.1ms)
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/administrate/application/_stylesheet.html.erb (14.9ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/administrate/application/_sidebar.html.erb (3.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/administrate/application/_flashes.html.erb (0.5ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/administrate/application/_javascript.html.erb (23.3ms) [cache miss]
+Completed 200 OK in 288ms (Views: 283.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/admin/posts" for 127.0.0.1 at 2017-05-09 22:53:08 +0100
+Processing by Admin::PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/administrate/application/index.html.erb within layouts/administrate/application
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/administrate/application/_search.html.erb (4.2ms) [cache miss]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1[0m
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/belongs_to/_index.html.erb (1.2ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_index.html.erb (0.6ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/date_time/_index.html.erb (0.9ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/belongs_to/_index.html.erb (0.3ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_index.html.erb (0.0ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/date_time/_index.html.erb (0.2ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_index.html.erb (0.0ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/belongs_to/_index.html.erb (0.5ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/date_time/_index.html.erb (0.2ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/belongs_to/_index.html.erb (0.5ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_index.html.erb (0.0ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/date_time/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/belongs_to/_index.html.erb (0.3ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_index.html.erb (0.0ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/date_time/_index.html.erb (0.2ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/belongs_to/_index.html.erb (0.4ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_index.html.erb (0.0ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/date_time/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_index.html.erb (0.0ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/belongs_to/_index.html.erb (0.3ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_index.html.erb (0.0ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/date_time/_index.html.erb (0.2ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/belongs_to/_index.html.erb (0.5ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_index.html.erb (0.0ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/date_time/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_index.html.erb (0.0ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/belongs_to/_index.html.erb (0.4ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_index.html.erb (0.0ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/date_time/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/belongs_to/_index.html.erb (0.5ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_index.html.erb (0.0ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/date_time/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/belongs_to/_index.html.erb (0.6ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/date_time/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_index.html.erb (0.0ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/belongs_to/_index.html.erb (0.6ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/date_time/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/belongs_to/_index.html.erb (0.5ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/date_time/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_index.html.erb (0.0ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/belongs_to/_index.html.erb (0.6ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_index.html.erb (0.0ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/date_time/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/belongs_to/_index.html.erb (0.6ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_index.html.erb (0.0ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/date_time/_index.html.erb (0.2ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_index.html.erb (0.0ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/belongs_to/_index.html.erb (0.4ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/date_time/_index.html.erb (0.2ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_index.html.erb (0.0ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/belongs_to/_index.html.erb (0.6ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_index.html.erb (0.0ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/date_time/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_index.html.erb (0.0ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/belongs_to/_index.html.erb (0.4ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_index.html.erb (0.0ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/date_time/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/belongs_to/_index.html.erb (0.3ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_index.html.erb (0.0ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/date_time/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/belongs_to/_index.html.erb (0.3ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_index.html.erb (0.0ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/date_time/_index.html.erb (0.3ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/administrate/application/_collection.html.erb (442.6ms) [cache miss]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/administrate/application/index.html.erb within layouts/administrate/application (533.3ms)
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/administrate/application/_stylesheet.html.erb (12.3ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/administrate/application/_sidebar.html.erb (2.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/administrate/application/_flashes.html.erb (0.5ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/administrate/application/_javascript.html.erb (24.9ms) [cache miss]
+Completed 200 OK in 665ms (Views: 659.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/admin/posts/1/edit" for 127.0.0.1 at 2017-05-09 22:53:10 +0100
+Processing by Admin::PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/administrate/application/edit.html.erb within layouts/administrate/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/belongs_to/_form.html.erb (5.8ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/date_time/_form.html.erb (1.3ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/text/_form.html.erb (0.9ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/administrate/application/_form.html.erb (36.0ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/administrate/application/edit.html.erb within layouts/administrate/application (52.6ms)
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/administrate/application/_stylesheet.html.erb (16.9ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/administrate/application/_sidebar.html.erb (2.8ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/administrate/application/_flashes.html.erb (0.5ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/administrate/application/_javascript.html.erb (24.1ms) [cache miss]
+Completed 200 OK in 193ms (Views: 186.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2017-05-09 22:53:13 +0100
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/administrate/application/index.html.erb within layouts/administrate/application
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/administrate/application/_search.html.erb (4.4ms) [cache miss]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" IN (1, 2, 3)[0m
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/has_many/_index.html.erb (0.5ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/number/_index.html.erb (0.4ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/string/_index.html.erb (0.6ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/string/_index.html.erb (0.0ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/has_many/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/number/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/string/_index.html.erb (0.0ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/string/_index.html.erb (0.0ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/has_many/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/number/_index.html.erb (0.1ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/string/_index.html.erb (0.0ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/fields/string/_index.html.erb (0.0ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/administrate/application/_collection.html.erb (73.5ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/administrate/application/index.html.erb within layouts/administrate/application (113.1ms)
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/administrate/application/_stylesheet.html.erb (15.5ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/administrate/application/_sidebar.html.erb (2.6ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/administrate/application/_flashes.html.erb (0.8ms) [cache miss]
+  Rendered /Users/tiago.serra/.rvm/gems/ruby-2.4.0/bundler/gems/administrate-a784a8193813/app/views/administrate/application/_javascript.html.erb (20.0ms) [cache miss]
+Completed 200 OK in 258ms (Views: 254.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-09 22:53:22 +0100
+Processing by StaticController#homepage as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering static/homepage.html.erb within layouts/application
+  Rendered static/homepage.html.erb within layouts/application (0.4ms)
+  Rendered shared/_nav.html.erb (2.0ms) [cache miss]
+  Rendered shared/_alerts.html.erb (1.7ms) [cache miss]
+Completed 200 OK in 86ms (Views: 82.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-05-09 22:53:23 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Started GET "/" for 127.0.0.1 at 2017-05-09 22:53:23 +0100
+Processing by StaticController#homepage as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 3]]
+  Rendering static/homepage.html.erb within layouts/application
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered static/homepage.html.erb within layouts/application (0.4ms)
+  Rendered posts/index.html.erb within layouts/application (2.4ms)
+  Rendered shared/_nav.html.erb (1.1ms) [cache miss]
+  Rendered shared/_alerts.html.erb (1.2ms) [cache miss]
+Completed 200 OK in 179ms (Views: 173.3ms | ActiveRecord: 0.4ms)
+
+
+  Rendered shared/_nav.html.erb (0.5ms) [cache miss]
+  Rendered shared/_alerts.html.erb (0.1ms) [cache miss]
+Completed 200 OK in 173ms (Views: 169.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/post/1/edit" for 127.0.0.1 at 2017-05-09 22:53:29 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/post/1/edit"):
+  
+actionpack (5.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.0) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.0) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.0) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.0) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.0) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.0) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.0) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.0) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.2) lib/rack/method_override.rb:22:in `call'
+rack (2.0.2) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.0) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.0) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.2) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.0) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2017-05-09 22:53:54 +0100
+Processing by StaticController#homepage as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering static/homepage.html.erb within layouts/application
+  Rendered static/homepage.html.erb within layouts/application (0.6ms)
+  Rendered shared/_nav.html.erb (2.4ms) [cache miss]
+  Rendered shared/_alerts.html.erb (1.2ms) [cache miss]
+Completed 200 OK in 114ms (Views: 108.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-05-09 22:53:55 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 3]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered posts/index.html.erb within layouts/application (1.7ms)
+  Rendered shared/_nav.html.erb (1.7ms) [cache miss]
+  Rendered shared/_alerts.html.erb (1.1ms) [cache miss]
+Completed 200 OK in 98ms (Views: 93.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-05-09 22:54:06 +0100
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_status.html.erb (0.9ms) [cache miss]
+  Rendered posts/_form.html.erb (5.1ms) [cache miss]
+  Rendered posts/new.html.erb within layouts/application (7.1ms)
+  Rendered shared/_nav.html.erb (2.7ms) [cache miss]
+  Rendered shared/_alerts.html.erb (1.3ms) [cache miss]
+Completed 200 OK in 145ms (Views: 141.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2017-05-09 22:54:07 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.7ms)
+  Rendered shared/_nav.html.erb (2.1ms) [cache miss]
+  Rendered shared/_alerts.html.erb (1.0ms) [cache miss]
+Completed 200 OK in 97ms (Views: 93.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts/1/edit" for 127.0.0.1 at 2017-05-09 22:54:08 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_status.html.erb (0.8ms) [cache miss]
+  Rendered posts/_form.html.erb (4.3ms) [cache miss]
+  Rendered posts/edit.html.erb within layouts/application (6.1ms)
+  Rendered shared/_nav.html.erb (2.9ms) [cache miss]
+  Rendered shared/_alerts.html.erb (0.7ms) [cache miss]
+Completed 200 OK in 155ms (Views: 149.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/1/" for 127.0.0.1 at 2017-05-09 22:54:09 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.4ms)
+  Rendered shared/_nav.html.erb (1.4ms) [cache miss]
+  Rendered shared/_alerts.html.erb (0.8ms) [cache miss]
+Completed 200 OK in 123ms (Views: 116.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/posts/1/edit" for 127.0.0.1 at 2017-05-09 22:54:13 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_status.html.erb (1.5ms) [cache miss]
+  Rendered posts/_form.html.erb (6.9ms) [cache miss]
+  Rendered posts/edit.html.erb within layouts/application (9.4ms)
+  Rendered shared/_nav.html.erb (1.4ms) [cache miss]
+  Rendered shared/_alerts.html.erb (0.9ms) [cache miss]
+Completed 200 OK in 128ms (Views: 120.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-09 22:54:15 +0100
+Processing by StaticController#homepage as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering static/homepage.html.erb within layouts/application
+  Rendered static/homepage.html.erb within layouts/application (0.5ms)
+  Rendered shared/_nav.html.erb (2.2ms) [cache miss]
+  Rendered shared/_alerts.html.erb (1.2ms) [cache miss]
+Completed 200 OK in 83ms (Views: 80.2ms | ActiveRecord: 0.2ms)
+
+
