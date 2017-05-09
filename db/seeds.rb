@@ -13,6 +13,10 @@ User.create!(
   email: 'test@test.com', password: 'asdfasdf',
   password_confirmation: 'asdfasdf', first_name: 'Jon', last_name: 'Snow'
 )
+User.create!(
+  email: 'test2@test.com', password: 'asdfasdf',
+  password_confirmation: 'asdfasdf', first_name: 'Jane', last_name: 'Hot'
+)
 
 puts '1 User created'
 
