@@ -5,7 +5,10 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-# Using gem bootstrap, jquery and gritter to make it easy to color our page
+# Using gems administrate and bourbon for the admin dashboard
+gem 'administrate' , git: 'https://github.com/tiagoamaro/administrate.git', branch: 'allow-rails-5-1'
+gem 'bourbon'
+# Using gems bootstrap, jquery and gritter to make it easy to color our page
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'gritter', '~> 1.2'
 gem 'jquery-rails'
