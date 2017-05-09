@@ -1,7 +1,7 @@
 # This is the post controller, where are implemented the actions of the Posts
 # view
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show]
+  before_action :set_post, only: %i[show edit update]
 
   def index
     @posts = Post.all
@@ -23,6 +23,18 @@ class PostsController < ApplicationController
 
   def show
     # code goes here
+  end
+
+  def edit
+    # code goes here
+  end
+
+  def update
+    if @post.update(post_params)
+      redirect_to @post, notice: 'Your post was updated successfully'
+    else
+      render :edit
+    end
   end
 
   private
