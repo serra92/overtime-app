@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def admin_types
+    ['AdminUser']
+  end
+
   def active?(path)
     'active' if current_page?(path)
   end
@@ -20,9 +24,5 @@ module ApplicationHelper
     when 'confirmed'
       content_tag(:span, status.titleize, class: 'label label-success')
     end
-  end
-
-  def admin_types
-    ['AdminUser']
   end
 end
