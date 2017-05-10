@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Using gem kaminari for the pagination
+gem 'kaminari'
 # Using get twillo for the sms notifications
 gem 'twilio-ruby'
 # Using gem pundit for the authorization rules for the different users
