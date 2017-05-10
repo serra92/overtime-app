@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Using get twillo for the sms notifications
+gem 'twilio-ruby'
 # Using gem pundit for the authorization rules for the different users
 gem 'pundit'
 # Using gems administrate and bourbon for the admin dashboard
