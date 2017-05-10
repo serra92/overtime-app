@@ -8,11 +8,11 @@ RSpec.describe User, type: :model do
   end
 
   describe 'Creation' do
+    it 'can be created' do
+      expect(@user).to be_valid
+    end
+    
     describe 'validations' do
-      it 'can be created' do
-        expect(@user).to be_valid
-      end
-
       it 'cannot be created without first_name' do
         @user.first_name = nil
         expect(@user).to_not be_valid
