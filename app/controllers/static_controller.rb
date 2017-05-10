@@ -2,6 +2,7 @@
 # This class is the controller of the main page
 class StaticController < ApplicationController
   def homepage
-    # method
+    @pending_approvals = Post.where(status: 'submitted')
+    @recent_audit_items = AuditLog.last(10)
   end
 end

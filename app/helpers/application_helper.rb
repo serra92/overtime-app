@@ -21,4 +21,8 @@ module ApplicationHelper
       content_tag(:span, status.titleize, class: 'label label-success')
     end
   end
+
+  def admin_types
+    ['AdminUser']
+  end
 end
