@@ -11,18 +11,21 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.create!(
   email: 'test@test.com', password: 'asdfasdf',
-  password_confirmation: 'asdfasdf', first_name: 'Jon', last_name: 'Snow'
+  password_confirmation: 'asdfasdf', first_name: 'Jon', last_name: 'Snow',
+  phone: '966696717'
 )
 User.create!(
   email: 'test2@test.com', password: 'asdfasdf',
-  password_confirmation: 'asdfasdf', first_name: 'Jane', last_name: 'Hot'
+  password_confirmation: 'asdfasdf', first_name: 'Jane', last_name: 'Hot',
+  phone: '966696717'
 )
 
 puts '1 User created'
 
 AdminUser.create(
   email: 'admin@test.com', password: 'asdfasdf',
-  password_confirmation: 'asdfasdf', first_name: 'Admin', last_name: 'Name'
+  password_confirmation: 'asdfasdf', first_name: 'Admin', last_name: 'Name',
+  phone: '966696717'
 )
 
 puts '1 Admin User created'
